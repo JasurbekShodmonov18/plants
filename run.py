@@ -8,7 +8,6 @@ Manzil: http://127.0.0.1:8000
 import sys
 import os
 
-# Windows konsolida UTF-8 ni to'g'ri ko'rsatish
 if sys.platform.startswith("win"):
     try:
         sys.stdout.reconfigure(encoding="utf-8")
@@ -23,4 +22,4 @@ if __name__ == "__main__":
     print("  [AgroAI] O'simliklar Kasalliklarini Tasniflash Tizimi")
     print("  [URL] Server manzili: http://127.0.0.1:8000")
     print("=" * 60)
-    uvicorn.run("app.main:app", host="127.0.0.1", port=8000, reload=False)
+    uvicorn.run("app.main:app", host="127.0.0.1", port=8000, reload=True)
