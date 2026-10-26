@@ -275,20 +275,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function displayResult(data) {
     const best = data.best_prediction;
-    resultPlant.textContent = best.plant || "O'simlik";
+    resultPlant.textContent = best.plant || "Ösimlik";
     resultDisease.textContent = best.disease || "Kasallik";
     resultPathogen.textContent = best.pathogen ? `Patogen: ${best.pathogen}` : "";
 
     // Severity tag
     resultSeverity.className = 'severity-tag';
     if (best.is_healthy) {
-      resultSeverity.textContent = "Sog'lom";
+      resultSeverity.textContent = "Soğlom";
       resultSeverity.classList.add('success');
-    } else if (best.severity === "O'ta xavfli" || best.severity === "Jiddiy") {
+    } else if (best.severity === "Öta xavfli" || best.severity === "Jiddiy") {
       resultSeverity.textContent = best.severity;
       resultSeverity.classList.add('danger');
     } else {
-      resultSeverity.textContent = best.severity || "O'rta";
+      resultSeverity.textContent = best.severity || "Örta";
       resultSeverity.classList.add('warning');
     }
 
@@ -309,11 +309,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (data.visual_features) {
       const vf = data.visual_features;
       const pills = [
-        { label: "Xlorofill (Sog'lom)", val: vf.xlorofill_soglomlik + "%" },
-        { label: "Nekroz dog'lar", val: vf.nekroz_qongir_dog + "%" },
-        { label: "Xloroz (Sarg'ayish)", val: vf.xloroz_sargayish + "%" },
-        { label: "Zang pustulalari", val: vf.zang_doglari + "%" },
-        { label: "Unsimon g'ubor", val: vf.unsimon_gubor + "%" }
+        { label: "Xlorofill (Soğlom)", val: (vf.xlorofill_soğlomlik || vf.xlorofill_soglomlik || 0) + "%" },
+        { label: "Nekroz qöñğir doğ", val: (vf.nekroz_qöñğir_doğ || vf.nekroz_qongir_dog || 0) + "%" },
+        { label: "Xloroz (Sarğayiş)", val: (vf.xloroz_sarğayiş || vf.xloroz_sargayish || 0) + "%" },
+        { label: "Zañg pustulalari", val: (vf.zañg_doğlari || vf.zang_doglari || 0) + "%" },
+        { label: "Unsimon ğubor", val: (vf.unsimon_ğubor || vf.unsimon_gubor || 0) + "%" }
       ];
       pills.forEach(p => {
         const span = document.createElement('div');
@@ -371,22 +371,39 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  function renderEncyclopedia() {
-    const query = searchInput.value.toLowerCase().trim();
+    // Normalizer function for seamless search in both old and new orthography
+    function normalizeUz(str) {
+      if (!str) return '';
+      return str.toLowerCase()
+        .replace(/sh/g, 'ş')
+        .replace(/ch/g, 'ç')
+        .replace(/o['‘ʻ`]/g, 'ö')
+        .replace(/g['‘ʻ`]/g, 'ğ')
+        .replace(/ñ/g, 'ng');
+    }
+
+    const query = normalizeUz(searchInput.value.trim());
     encyclopediaGrid.innerHTML = '';
 
     const filtered = allDiseases.filter(d => {
       const matchPlant = currentFilter === 'all' || d.plant === currentFilter;
-      const matchSearch = !query || 
-        d.plant.toLowerCase().includes(query) ||
-        d.disease.toLowerCase().includes(query) ||
-        d.pathogen.toLowerCase().includes(query) ||
-        d.symptoms.toLowerCase().includes(query);
-      return matchPlant && matchSearch;
+      if (!query) return matchPlant;
+
+      const pNorm = normalizeUz(d.plant);
+      const dNorm = normalizeUz(d.disease);
+      const pathNorm = normalizeUz(d.pathogen);
+      const sNorm = normalizeUz(d.symptoms);
+
+      return matchPlant && (
+        pNorm.includes(query) ||
+        dNorm.includes(query) ||
+        pathNorm.includes(query) ||
+        sNorm.includes(query)
+      );
     });
 
     if (filtered.length === 0) {
-      encyclopediaGrid.innerHTML = `<div style="grid-column: 1 / -1; text-align: center; color: var(--text-muted); padding: 40px;">Mos keluvchi kasallik topilmadi.</div>`;
+      encyclopediaGrid.innerHTML = `<div style="grid-column: 1 / -1; text-align: center; color: var(--text-muted); padding: 40px;">Mos keluvçi kasallik topilmadi.</div>`;
       return;
     }
 
@@ -396,7 +413,7 @@ document.addEventListener('DOMContentLoaded', () => {
       card.innerHTML = `
         <div class="disease-card-header">
           <span class="plant-badge">${d.plant}</span>
-          <span class="severity-tag ${d.is_healthy ? 'success' : (d.severity === 'O\'ta xavfli' ? 'danger' : 'warning')}">
+          <span class="severity-tag ${d.is_healthy ? 'success' : (d.severity === 'Öta xavfli' || d.severity === 'Jiddiy' ? 'danger' : 'warning')}">
             ${d.severity}
           </span>
         </div>

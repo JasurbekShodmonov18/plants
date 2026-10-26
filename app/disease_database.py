@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 """
-PlantVillage 38 xil o'simlik va kasalliklari bo'yicha to'liq ma'lumotlar bazasi.
-Har bir kasallik uchun o'zbekcha va ilmiy nomi, belgilari, sabablari, 
-davolash vositalari (fungitsidlar, biologik) va profilaktika choralari.
+PlantVillage 38 xil ösimlik va kasalliklari böyiça töliq ma'lumotlar bazasi.
+Yangi Özbek lotin alifbosi (ş, ö, ç, ğ) me'yorida:
+Har bir kasallik uçun özbekça va ilmiy nomi, belgilari, sabablari, 
+davolaş vositalari (fungitsidlar, biologik) va profilaktika çoralari.
 """
 
 DISEASE_CLASSES = [
@@ -49,166 +50,166 @@ DISEASE_CLASSES = [
 DISEASE_INFO = {
     "Apple___Apple_scab": {
         "plant": "Olma",
-        "disease": "Olma qo'tiri (Scab)",
-        "pathogen": "Venturia inaequalis (Zamburug')",
+        "disease": "Olma qötiri (Apple Scab)",
+        "pathogen": "Venturia inaequalis (Zamburuğ)",
         "severity": "Yuqori",
         "is_healthy": False,
-        "symptoms": "Barg yuzasida zaytunrang-jigarrang baxmalsimon dog'lar, barglarning erta to'kilishi va meva yorilishi.",
-        "causes": "Bahorgi nam va salqin ob-havo, yomg'irli kunlarning ketma-ket kelishi.",
-        "treatment": "Xorust, Skor yoki Topaz fungitsidlari bilan 7-10 kun oralig'ida purkash. Mis kuporosi (1%) profilaktikasi.",
-        "prevention": "Kuzda to'kilgan barglarni yig'ishtirib yoqish yoki chuqur ko'mish, daraxt shoxlarini o'z vaqtida butash."
+        "symptoms": "Barg yuzasida zaytunrang-jigarrang baxmalsimon doğlar, barglarning vaqtli tökilişi va meva yorilişi.",
+        "causes": "Bahorgi nam va salqin ob-havo, yomğirli kunlarning ketma-ket kelişi.",
+        "treatment": "Xorus, Skor yoki Topaz fungitsidlari bilan 7-10 kun oraliğida purkaş. Mis kuporosi (1%) profilaktikasi.",
+        "prevention": "Kuzda tökilgan barglarni yiğiştiriş yoki çuqur kömiş, daraxt şoxlarini vaqtida butaş."
     },
     "Apple___Black_rot": {
         "plant": "Olma",
-        "disease": "Olma qora chirishi (Black Rot)",
-        "pathogen": "Botryosphaeria obtusa (Zamburug')",
+        "disease": "Olma qora çirişi (Black Rot)",
+        "pathogen": "Botryosphaeria obtusa (Zamburuğ)",
         "severity": "Jiddiy",
         "is_healthy": False,
-        "symptoms": "Barglarda markazi och qo'ng'ir qizg'ish halqali dog'lar (\"qurbaqa ko'zi\"), mevalarda qora chirik.",
-        "causes": "Daraxt po'stlog'idagi mexanik jarohatlar va sovuq urgan joylardan zamburug' kirishi.",
-        "treatment": "Kasallangan shoxlarni kesib tashlash, Mis asosli fungitsidlar yoki Kaptan preparatini qo'llash.",
-        "prevention": "Zararlangan novdalarni tozalash, bog' gigiyenasini saqlash."
+        "symptoms": "Barglarda markazi oç qöñğir qizğiş halqali doğlar (\"qurbaqa közi\"), mevalarda qora çirik.",
+        "causes": "Daraxt pöstloğidagi mexanik jarohatlar va sovuq urgan joylardan zamburuğ kirişi.",
+        "treatment": "Zararlangan şoxlarni kesib taşlaş, Mis asosli fungitsidlar yoki Kaptan preparatini qöllaş.",
+        "prevention": "Zararlangan novdalarni tozalash, boğ gigiyenasini saqlaş."
     },
     "Apple___Cedar_apple_rust": {
         "plant": "Olma",
-        "disease": "Olma zangi (Cedar Apple Rust)",
+        "disease": "Olma zañgi (Cedar Apple Rust)",
         "pathogen": "Gymnosporangium juniperi-virginianae",
-        "severity": "O'rta",
+        "severity": "Örta",
         "is_healthy": False,
-        "symptoms": "Barg ustida yorqin to'q sariq-sariq dog'lar, barg ostida mayda naychasimon o'simtalar.",
-        "causes": "Archa (qoraqayin) va olma daraxtlarining yaqin o'sishi zamburug'ning oraliq rivojlanishiga sabab bo'ladi.",
-        "treatment": "Mankotseb, Miklobutanil yoki Triazol guruhidagi fungitsidlar bilan erta bahorda purkash.",
-        "prevention": "Olma bog'lari yaqiniga manzarali archalarni ekmaslik."
+        "symptoms": "Barg ustida yorqin töq sariq-sariq doğlar, barg ostida mayda nayçasimon ösimtalar.",
+        "causes": "Arça (qoraqayin) va olma daraxtlarining yaqin ösişi zamburuğning oraliq rivojlanişiga sabab böladi.",
+        "treatment": "Mankotseb, Miklobutanil yoki Triazol guruhidagi fungitsidlar bilan erta bahorda purkaş.",
+        "prevention": "Olma boğlari yaqiniga manzarali arçalarni ekmaslik."
     },
     "Apple___healthy": {
         "plant": "Olma",
-        "disease": "Sog'lom olma bargi",
-        "pathogen": "Mavjud emas (Sog'lom)",
+        "disease": "Soğlom olma bargi",
+        "pathogen": "Mavjud emas (Soğlom)",
         "severity": "Xavfsiz",
         "is_healthy": True,
-        "symptoms": "Barglar toza, yashil, dog'siz va me'yorida rivojlangan.",
-        "causes": "To'g'ri agrotexnika va muvozanatli oziqlantirish.",
+        "symptoms": "Barglar toza, yaşil, doğsiz va me'yorida rivojlangan.",
+        "causes": "Töğri agrotexnika va muvozanatli oziqlantiriş.",
         "treatment": "Davo talab etilmaydi. Rejali profilaktika yetarli.",
-        "prevention": "Muntazam sug'orish, mikroelementlar bilan oziqlantirish."
+        "prevention": "Muntazam suğoriş, mikroelementlar bilan oziqlantiriş."
     },
     "Blueberry___healthy": {
-        "plant": "Chernika",
-        "disease": "Sog'lom barg",
+        "plant": "Çernika",
+        "disease": "Soğlom barg",
         "pathogen": "Mavjud emas",
         "severity": "Xavfsiz",
         "is_healthy": True,
-        "symptoms": "Barg yashil, silliq, hech qanday zararlanish alomati yo'q.",
+        "symptoms": "Barg yaşil, silliq, heç qanday zararlaniş alomati yöq.",
         "causes": "Tuproq kislotaliligi (pH 4.5-5.5) me'yorida.",
-        "treatment": "Zarurat yo'q.",
-        "prevention": "Kislotali torf va to'g'ri namlik rejimini saqlash."
+        "treatment": "Zarurat yöq.",
+        "prevention": "Kislotali torf va töğri namlik rejimini saqlaş."
     },
     "Cherry_(including_sour)___Powdery_mildew": {
-        "plant": "Gilos / Olcha",
-        "disease": "Un shudringi (Powdery Mildew)",
+        "plant": "Gilos / Olça",
+        "disease": "Un şudriñgi (Powdery Mildew)",
         "pathogen": "Podosphaera clandestina",
-        "severity": "O'rta",
+        "severity": "Örta",
         "is_healthy": False,
-        "symptoms": "Yosh barglar yuzasida oq unsimon g'ubor paydo bo'ladi, barglar buraladi va o'sishdan to'xtaydi.",
-        "causes": "Iliq va quruq havo sharoitida yuqori havo namligi.",
-        "treatment": "Oltingugurt preparatlari (Kollodiy oltingugurt), Tiovit Djet yoki Skor purkash.",
-        "prevention": "Qalinlashgan shox-shabbani yoritish, azotli o'g'itlarni me'yoridan ortiq bermaslik."
+        "symptoms": "Yoş barglar yuzasida oq unsimon ğubor paydo böladi, barglar buraladi va ösişdan töxtaydi.",
+        "causes": "Iliq va quruq havo şaroitida yuqori havo namligi.",
+        "treatment": "Oltingugurt preparatlari (Tiovit Djet) yoki Skor purkaş.",
+        "prevention": "Qalinlaşgan şox-şabbani yoritiş, azotli ög‘itlarni me'yordan ortiq bermaslik."
     },
     "Cherry_(including_sour)___healthy": {
-        "plant": "Gilos / Olcha",
-        "disease": "Sog'lom barg",
+        "plant": "Gilos / Olça",
+        "disease": "Soğlom barg",
         "pathogen": "Mavjud emas",
         "severity": "Xavfsiz",
         "is_healthy": True,
-        "symptoms": "Toza, yaltiroq yashil barglar.",
-        "causes": "Sog'lom o'sish sharoiti.",
+        "symptoms": "Toza, yaltiroq yaşil barglar.",
+        "causes": "Soğlom ösiş şaroiti.",
         "treatment": "Kerak emas.",
         "prevention": "Bahorgi insektitsid va fungitsid profilaktikasi."
     },
     "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot": {
-        "plant": "Makkajo'xori",
-        "disease": "Kulrang barg dog'lanishi (Gray Leaf Spot)",
+        "plant": "Makkajöxori",
+        "disease": "Kulrang barg doğlanişi (Gray Leaf Spot)",
         "pathogen": "Cercospora zeae-maydis",
         "severity": "Yuqori",
         "is_healthy": False,
-        "symptoms": "Barg tomirlari orasida to'g'ri to'rtburchak shakldagi kulrang-qo'ng'ir dog'lar.",
-        "causes": "Uzoq davom etuvchi tuman, shudring va 25-30°C harorat.",
-        "treatment": "Azoksistrobin, Piraklostrobin yoki Propikonazol asosli fungitsidlar.",
-        "prevention": "Ekinlarni almashlab ekish, chidamli duragaylarni tanlash."
+        "symptoms": "Barg tomirlari orasida töğri törtburçak şakldagi kulrang-qöñğir doğlar.",
+        "causes": "Uzoq davom etuvçi tuman, şudring va 25-30°C harorat.",
+        "treatment": "Azoksistrobin, Piraklostrobin yoki Propikonazol asosli vositalar.",
+        "prevention": "Ekinlarni almaşlab ekiş, çidamli duragaylarni tanlaş."
     },
     "Corn_(maize)___Common_rust_": {
-        "plant": "Makkajo'xori",
-        "disease": "Oddiy zang (Common Rust)",
+        "plant": "Makkajöxori",
+        "disease": "Oddiy zañg (Common Rust)",
         "pathogen": "Puccinia sorghi",
-        "severity": "O'rta",
+        "severity": "Örta",
         "is_healthy": False,
-        "symptoms": "Bargning ikkala tomonida qizg'ish-jigarrang changli pustulalar paydo bo'lishi.",
-        "causes": "Salqin va sernam ob-havo, sporalarning shamol orqali tarqalishi.",
+        "symptoms": "Bargning ikkala tomonida qizğiş-jigarrang çañli pustulalar paydo bölişi.",
+        "causes": "Salqin va sernam ob-havo, sporalarning şamol orqali tarqalişi.",
         "treatment": "Tebukonazol yoki Strobilurin guruhidagi vositalar.",
-        "prevention": "Chidamli navlarni ekish, erta bahorgi monitoring."
+        "prevention": "Çidamli navlarni ekiş, erta bahorgi monitoring."
     },
     "Corn_(maize)___Northern_Leaf_Blight": {
-        "plant": "Makkajo'xori",
-        "disease": "Shimoliy barg kuyishi (Northern Leaf Blight)",
+        "plant": "Makkajöxori",
+        "disease": "Şimoliy barg kuyişi (Northern Leaf Blight)",
         "pathogen": "Exserohilum turcicum",
         "severity": "Yuqori",
         "is_healthy": False,
-        "symptoms": "Barglarda duksimon (uzunchoq) yirik kulrang-yashil yoki sarg'ish dog'lar (2.5-15 sm).",
+        "symptoms": "Barglarda duksimon (uzunçoq) yirik kulrang-yaşil yoki sarğiş doğlar (2.5-15 sm).",
         "causes": "Mo'tadil harorat (18-27°C) va yuqori namlik.",
         "treatment": "Triazol va strobilurin kombinatsiyalari.",
-        "prevention": "O'simlik qoldiqlarini chuqur haydab yuborish, almashlab ekish."
+        "prevention": "Ösimlik qoldiqlarini çuqur haydab yuboriş, almaşlab ekiş."
     },
     "Corn_(maize)___healthy": {
-        "plant": "Makkajo'xori",
-        "disease": "Sog'lom makkajo'xori bargi",
+        "plant": "Makkajöxori",
+        "disease": "Soğlom makkajöxori bargi",
         "pathogen": "Mavjud emas",
         "severity": "Xavfsiz",
         "is_healthy": True,
-        "symptoms": "Barglar keng, to'q yashil va shikastlanishsiz.",
-        "causes": "Me'yordagi fosfor-azot oziqlantirish.",
+        "symptoms": "Barglar keng, töq yaşil va şikastlanişsiz.",
+        "causes": "Me'yordagi fosfor-azot oziqlantiriş.",
         "treatment": "Davo talab etilmaydi.",
-        "prevention": "Vaqtli kultivatsiya va tomchilatib sug'orish."
+        "prevention": "Vaqtli kultivatsiya va tomçilatib suğoriş."
     },
     "Grape___Black_rot": {
         "plant": "Uzum",
-        "disease": "Qora chirish (Black Rot)",
+        "disease": "Qora çiriş (Black Rot)",
         "pathogen": "Guignardia bidwellii",
         "severity": "Yuqori",
         "is_healthy": False,
-        "symptoms": "Barglarda qizg'ish-qo'ng'ir aylana dog'lar, uzum boshlarida qorayib qurigan munchoqlar.",
-        "causes": "Bahorda yomg'irli va iliq havo sporalar faollashuviga turtki beradi.",
-        "treatment": "Mankotseb, Kaptan yoki Miklobutanil purkash.",
-        "prevention": "Qurigan uzum boshlari va barglarni tokzordan olib chiqish."
+        "symptoms": "Barglarda qizğiş-qöñğir aylana doğlar, uzum boşlarida qorayib qurigan munçoqlar.",
+        "causes": "Bahorda yomğirli va iliq havo sporalar faollaşuvi.",
+        "treatment": "Mankotseb, Kaptan yoki Miklobutanil purkaş.",
+        "prevention": "Qurigan uzum boşlari va barglarni tokzordan olib çiqiș."
     },
     "Grape___Esca_(Black_Measles)": {
         "plant": "Uzum",
         "disease": "Eska kasalligi (Qora qizamiq)",
-        "pathogen": "Faeomoniella chlamydospora va zamburug'lar majmuasi",
+        "pathogen": "Faeomoniella chlamydospora",
         "severity": "Juda yuqori",
         "is_healthy": False,
-        "symptoms": "Barg tomirlari oralig'i sarg'ayib/qizarib \"yo'lbars terisi\" naqshini hosil qiladi.",
-        "causes": "Tok tanasining ichki yog'och qismi chirishi va suv o'tkazuvchi naylarning tiqilishi.",
-        "treatment": "Ildiz orqali triazol preparatlarini qo'llash, zararlangan zanglarni kesib o'rniga yangi novda qoldirish.",
-        "prevention": "Katta kesish jarohatlarini bog' malhami (var) bilan yopish."
+        "symptoms": "Barg tomirlari oraliği sarğayib/qizarib \"yölbars terisi\" naqşini hosil qiladi.",
+        "causes": "Tok tanasining içki yoğoç qismi çirişi va suv ötqazuvçi naylarning tiqilişi.",
+        "treatment": "Ildiz orqali triazol preparatlarini qöllaş, zararlangan novdani kesib yangi poya qoldiriş.",
+        "prevention": "Katta kesiş jarohatlarini boğ malhami bilan yopiş."
     },
     "Grape___Leaf_blight_(Isariopsis_Leaf_Spot)": {
         "plant": "Uzum",
-        "disease": "Barg kuyishi (Isariopsis Leaf Spot)",
+        "disease": "Barg kuyişi (Isariopsis Leaf Spot)",
         "pathogen": "Pseudocercospora cladosporioides",
-        "severity": "O'rta",
+        "severity": "Örta",
         "is_healthy": False,
-        "symptoms": "Barg chetlarida tartibsiz to'q jigarrang qurigan dog'lar paydo bo'ladi.",
+        "symptoms": "Barg çetlarida tartibsiz töq jigarrang qurigan doğlar paydo böladi.",
         "causes": "Yoz oxiridagi yuqori namlik va issiq havo.",
         "treatment": "Mis kuporosi (Bordo suyuqligi), Ridomil Gold yoki Kuproksat.",
-        "prevention": "Toklarni so'riga to'g'ri ko'tarish, havo aylanishini ta'minlash."
+        "prevention": "Toklarni söhriga töğri kötariş, havo aylanişini ta'minlaş."
     },
     "Grape___healthy": {
         "plant": "Uzum",
-        "disease": "Sog'lom uzum bargi",
+        "disease": "Soğlom uzum bargi",
         "pathogen": "Mavjud emas",
         "severity": "Xavfsiz",
         "is_healthy": True,
-        "symptoms": "Yashil, tekis va kuchli fotosintez qobiliyatiga ega barglar.",
-        "causes": "To'g'ri xomtok va mineral oziqlantirish.",
+        "symptoms": "Yaşil, tekis va kuçli fotosintez qobiliyatiga ega barglar.",
+        "causes": "Töğri xomtok va mineral oziqlantiriş.",
         "treatment": "Talab etilmaydi.",
         "prevention": "Muntazam fungitsid profilaktikasi."
     },
@@ -216,232 +217,232 @@ DISEASE_INFO = {
         "plant": "Sitrus (Apelsin/Limon)",
         "disease": "Xuanlunbin (Citrus Greening)",
         "pathogen": "Candidatus Liberibacter (Bakteriya)",
-        "severity": "O'ta xavfli",
+        "severity": "Öta xavfli",
         "is_healthy": False,
-        "symptoms": "Barglarda assimetrik sariq dog'lar (marmarsimon mozaika), mevalar kichrayishi va achchiq bo'lib qolishi.",
-        "causes": "Sitrus barg burgasi (Diaphorina citri) hasharoti orqali tarqaladi.",
-        "treatment": "To'g'ridan-to'g'ri davosi yo'q. Hasharotga qarshi Imidakloprid yoki Tiametoksam purkaladi.",
-        "prevention": "Karantin qoidalariga qat'iy rioya qilish, zararlangan daraxtlarni ildizi bilan yoqish."
+        "symptoms": "Barglarda assimetrik sariq doğlar (marmarsimon mozaika), mevalar kiçrayişi va aççiq bölib qolişi.",
+        "causes": "Sitrus barg burgasi (Diaphorina citri) haşaroti orqali tarqaladi.",
+        "treatment": "Töğridan-töğri davosi yöq. Haşarotga qarşi Imidakloprid yoki Tiametoksam purkaladi.",
+        "prevention": "Karantin qoidalariga rioya qiliş, zararlangan daraxtlarni ildizi bilan yoqiș."
     },
     "Peach___Bacterial_spot": {
-        "plant": "Shaftoli",
-        "disease": "Bakterial dog'lanish (Bacterial Spot)",
+        "plant": "Şaftoli",
+        "disease": "Bakterial doğlaniş (Bacterial Spot)",
         "pathogen": "Xanthomonas arboricola pv. pruni",
         "severity": "Yuqori",
         "is_healthy": False,
-        "symptoms": "Barglarda mayda burchakli suvsimon dog'lar, keyinchalik to'kilib \"o'q tekkan\" teshiklarga aylanadi.",
-        "causes": "Shamolli yomg'irlar orqali bakteriyalarning yoyilishi.",
+        "symptoms": "Barglarda mayda burçakli suvsimon doğlar, keyinçalik tökilib \"öq tekkan\" teşiklarga aylanadi.",
+        "causes": "Şamolli yomğirlar orqali bakteriyalarning yoyilişi.",
         "treatment": "Mis oksixloridi yoki Kasugamitsin asosidagi bakteritsidlar.",
-        "prevention": "Daraxt tagiga qum aralash tuproq berish, chidamli navlar ekish."
+        "prevention": "Daraxt tagiga qum aralaş tuproq beriş, çidamli navlar ekiş."
     },
     "Peach___healthy": {
-        "plant": "Shaftoli",
-        "disease": "Sog'lom shaftoli bargi",
+        "plant": "Şaftoli",
+        "disease": "Soğlom şaftoli bargi",
         "pathogen": "Mavjud emas",
         "severity": "Xavfsiz",
         "is_healthy": True,
-        "symptoms": "Toza, yashil, silliq va cho'ziq barglar.",
-        "causes": "Profilaktik dorilash va sog'lom o'sish.",
+        "symptoms": "Toza, yaşil, silliq va çöziq barglar.",
+        "causes": "Profilaktik dorilaş va soğlom ösiş.",
         "treatment": "Kerak emas.",
-        "prevention": "Erta bahorgi ko'k purkash (3% Bordo suyuqligi)."
+        "prevention": "Erta bahorgi kök purkaş (3% Bordo suyuqligi)."
     },
     "Pepper,_bell___Bacterial_spot": {
-        "plant": "Shirin qalampir (Bolgar)",
-        "disease": "Bakterial dog'lanish (Bacterial Spot)",
+        "plant": "Şirin qalampir (Bolgar)",
+        "disease": "Bakterial doğlaniş (Bacterial Spot)",
         "pathogen": "Xanthomonas campestris",
         "severity": "Yuqori",
         "is_healthy": False,
-        "symptoms": "Barglarda mayda, sarg'ish hoshiyali jigarrang dog'lar, barglarning sarg'ayib to'kilishi.",
-        "causes": "Yuqori namlik va 24-30°C harorat, tomchilatmay ustidan sug'orish.",
-        "treatment": "Mis gidroksid (Kosayd) + Mankotseb aralashmasi yoki Fitolavin.",
-        "prevention": "Urug'larni ekishdan oldin zararsizlantirish, issiqxonani shamollatish."
+        "symptoms": "Barglarda mayda, sarğiş hoşiyali jigarrang doğlar, barglarning sarğayib tökilişi.",
+        "causes": "Yuqori namlik va 24-30°C harorat, tomçilatmay ustidan suğoriş.",
+        "treatment": "Mis gidroksid (Kosayd) + Mankotseb aralaşmasi yoki Fitolavin.",
+        "prevention": "Uruğlarni ekişdan oldin zararsizlantiriş, issiqxonani şamollatiş."
     },
     "Pepper,_bell___healthy": {
-        "plant": "Shirin qalampir (Bolgar)",
-        "disease": "Sog'lom qalampir bargi",
+        "plant": "Şirin qalampir (Bolgar)",
+        "disease": "Soğlom qalampir bargi",
         "pathogen": "Mavjud emas",
         "severity": "Xavfsiz",
         "is_healthy": True,
-        "symptoms": "Yaltiroq to'q yashil barglar, to'g'ri rivojlanish.",
-        "causes": "Optimal sug'orish va mikroiqlim.",
+        "symptoms": "Yaltiroq töq yaşil barglar, töğri rivojlaniş.",
+        "causes": "Optimal suğoriş va mikroiqlim.",
         "treatment": "Kerak emas.",
-        "prevention": "Oziqlantirish rejimini buzmaslik."
+        "prevention": "Oziqlantiriş rejimini buzmaslik."
     },
     "Potato___Early_blight": {
-        "plant": "Kartoshka",
-        "disease": "Erta kuyish (Alternarioz)",
-        "pathogen": "Alternaria solani (Zamburug')",
-        "severity": "O'rta-Yuqori",
+        "plant": "Kartoşka",
+        "disease": "Erta kuyiş (Alternarioz)",
+        "pathogen": "Alternaria solani (Zamburuğ)",
+        "severity": "Örta-Yuqori",
         "is_healthy": False,
-        "symptoms": "Pastki barglarda konsentrik (nishonsimon) qora-jigarrang doiraviy dog'lar hosil bo'ladi.",
-        "causes": "Issiq quruq va nam ob-havoning navbatma-navbat almashishi.",
-        "treatment": "Skor, Kvadris, Revus yoki Antrakol fungitsidlari bilan purkash.",
-        "prevention": "Almashlab ekish (pomidor va kartoshkadan keyin ekmaslik), kaliyli o'g'itlar berish."
+        "symptoms": "Pastki barglarda konsentrik (nişonsimon) qora-jigarrang doiraviy doğlar hosil böladi.",
+        "causes": "Issiq quruq va nam ob-havoning navbatma-navbat almaşiși.",
+        "treatment": "Skor, Kvadris, Revus yoki Antrakol fungitsidlari bilan purkaş.",
+        "prevention": "Almaşlab ekiş (pomidor va kartoşkadan keyin ekmaslik), kaliyli ög‘itlar beriş."
     },
     "Potato___Late_blight": {
-        "plant": "Kartoshka",
-        "disease": "Kechki kuyish (Fitoftoroz)",
+        "plant": "Kartoşka",
+        "disease": "Keçki kuyiş (Fitoftoroz)",
         "pathogen": "Phytophthora infestans",
-        "severity": "O'ta xavfli",
+        "severity": "Öta xavfli",
         "is_healthy": False,
-        "symptoms": "Barg chetlarida tez kengayuvchi to'q suvli dog'lar, barg orqasida oq mog'or g'ubori.",
-        "causes": "Salqin (15-20°C) va yuqori namlik (yomg'ir, shudring).",
-        "treatment": "Infinito, Ridomil Gold, Metaksil yoki Kurzat preparatlarini zudlik bilan qo'llash.",
-        "prevention": "Sog'lom urug'lik kartoshka tanlash, baland qilib chopiq qilish."
+        "symptoms": "Barg çetlarida tez kengayuvçi töq suvli doğlar, barg orqasida oq moğor ğubori.",
+        "causes": "Salqin (15-20°C) va yuqori namlik (yomğir, şudring).",
+        "treatment": "Infinito, Ridomil Gold, Metaksil yoki Kurzat preparatlarini tezlikda qöllaş.",
+        "prevention": "Soğlom uruğlik kartoşka tanlaş, baland qilib çopiq qiliş."
     },
     "Potato___healthy": {
-        "plant": "Kartoshka",
-        "disease": "Sog'lom kartoshka bargi",
+        "plant": "Kartoşka",
+        "disease": "Soğlom kartoşka bargi",
         "pathogen": "Mavjud emas",
         "severity": "Xavfsiz",
         "is_healthy": True,
-        "symptoms": "Tugunli mustahkam yashil poya va sog'lom toza barglar.",
-        "causes": "Tegishli agrotexnika va ekin parvarishi.",
+        "symptoms": "Tugunli mustahkam yaşil poya va soğlom toza barglar.",
+        "causes": "Tegişli agrotexnika va ekin parvarişi.",
         "treatment": "Davo talab etilmaydi.",
-        "prevention": "Kolorado qo'ng'iziga va fitoftoraga qarshi profilaktika."
+        "prevention": "Kolorado qöñğiziga va fitoftoraga qarşi profilaktika."
     },
     "Raspberry___healthy": {
         "plant": "Malina",
-        "disease": "Sog'lom barg",
+        "disease": "Soğlom barg",
         "pathogen": "Mavjud emas",
         "severity": "Xavfsiz",
         "is_healthy": True,
-        "symptoms": "Tishli qirrali, toza, zararkunandalarsiz yashil barglar.",
-        "causes": "Optimal namlik va yaxshi drenaj.",
+        "symptoms": "Tişli qirrali, toza, zararkunandalarsiz yaşil barglar.",
+        "causes": "Optimal namlik va yaxşi drenaj.",
         "treatment": "Kerak emas.",
-        "prevention": "Eski novdalarni o'z vaqtida qirqish."
+        "prevention": "Eski novdalarni vaqtida qirqiş."
     },
     "Soybean___healthy": {
         "plant": "Soya",
-        "disease": "Sog'lom barg",
+        "disease": "Soğlom barg",
         "pathogen": "Mavjud emas",
         "severity": "Xavfsiz",
         "is_healthy": True,
-        "symptoms": "Uch bargchali, chuqur yashil rangli sog'lom barglar.",
-        "causes": "Azot to'plovchi tugunak bakteriyalarining yaxshi ishlashi.",
+        "symptoms": "Uç bargçali, çuqur yaşil rangli soğlom barglar.",
+        "causes": "Azot töplovçi tugunak bakteriyalarining yaxşi işlaşi.",
         "treatment": "Kerak emas.",
-        "prevention": "Fosforli o'g'itlar va qator oralarini yumshatish."
+        "prevention": "Fosforli ög‘itlar va qator oralarini yumuşatiş."
     },
     "Squash___Powdery_mildew": {
-        "plant": "Qovoq / Kabachki",
-        "disease": "Un shudringi (Powdery Mildew)",
+        "plant": "Qovoq / Kabaçki",
+        "disease": "Un şudriñgi (Powdery Mildew)",
         "pathogen": "Podosphaera xanthii",
         "severity": "Yuqori",
         "is_healthy": False,
-        "symptoms": "Barglarning ustki qismida oq un kabi qoplamalar, barglar sarg'ayib quriydi.",
-        "causes": "Issiq ob-havo va havo yetishmasligi (qalin ekish).",
-        "treatment": "Topaz, Tiovit Djet yoki soda aralashmasi (1 litr suvga 5g iste'mol sodasi + sovun).",
-        "prevention": "Qator oralarini keng qoldirish, eski barglarni yulish."
+        "symptoms": "Barglarning ustki qismida oq un kabi qoplamalar, barglar sarğayib quriydi.",
+        "causes": "Issiq ob-havo va havo yetişmasligi (qalin ekiş).",
+        "treatment": "Topaz, Tiovit Djet yoki soda aralaşmasi (1L suvga 5g iste'mol sodasi).",
+        "prevention": "Qator oralarini keng qoldiriş, eski barglarni yuliş."
     },
     "Strawberry___Leaf_scorch": {
         "plant": "Qulupnay",
-        "disease": "Barg kuyishi (Leaf Scorch)",
+        "disease": "Barg kuyişi (Leaf Scorch)",
         "pathogen": "Diplocarpon earlianum",
-        "severity": "O'rta",
+        "severity": "Örta",
         "is_healthy": False,
-        "symptoms": "Barglarda mayda binafsharang-qizil dog'lar, keyinchalik butun barg qorayib kuygandek bo'lib qoladi.",
-        "causes": "Tomchilab sug'orilmagan, barg ustidan suv sepilgan nam maydonlar.",
-        "treatment": "Bordo suyuqligi (1%), Xorus yoki Svitvh purkash.",
-        "prevention": "Hosildan keyin eski zararlangan barglarni qirqib tashlash."
+        "symptoms": "Barglarda mayda binafşarang-qizil doğlar, butun barg qorayib kuygandek bölib qoladi.",
+        "causes": "Tomçilatilmagan, barg ustidan suv sepilgan nam maydonlar.",
+        "treatment": "Bordo suyuqligi (1%), Xorus yoki Svitç purkaş.",
+        "prevention": "Hosildan keyin eski zararlangan barglarni qirqib taşlaş."
     },
     "Strawberry___healthy": {
         "plant": "Qulupnay",
-        "disease": "Sog'lom qulupnay bargi",
+        "disease": "Soğlom qulupnay bargi",
         "pathogen": "Mavjud emas",
         "severity": "Xavfsiz",
         "is_healthy": True,
-        "symptoms": "Qalin to'q yashil va mevali butoqlar.",
-        "causes": "Mulchalash va me'yordagi suv rejimi.",
+        "symptoms": "Qalin töq yaşil va mevali butoqlar.",
+        "causes": "Mulçalash va me'yordagi suv rejimi.",
         "treatment": "Kerak emas.",
-        "prevention": "Agrotola (spandbond) bilan mulchalash."
+        "prevention": "Agrotola (spandbond) bilan mulçalash."
     },
     "Tomato___Bacterial_spot": {
         "plant": "Pomidor",
-        "disease": "Bakterial dog'lanish (Bacterial Spot)",
+        "disease": "Bakterial doğlaniş (Bacterial Spot)",
         "pathogen": "Xanthomonas vesicatoria",
         "severity": "Yuqori",
         "is_healthy": False,
-        "symptoms": "Barglarda mayda qoramtir-jigarrang suvsimon dog'lar, barglar quriydi va to'kiladi.",
-        "causes": "Issiq va yomg'irli sharoit, zararlangan urug'lar.",
-        "treatment": "Fitolavin yoki Mis gidroksidi (Kuproksat, Kosayd) purkash.",
-        "prevention": "Urug'larni termik yoki kimyoviy tozalash, 3 yil pomidor ekmaslik."
+        "symptoms": "Barglarda mayda qoramtir-jigarrang suvsimon doğlar, barglar quriydi va tökiladi.",
+        "causes": "Issiq va yomğirli şaroit, zararlangan uruğlar.",
+        "treatment": "Fitolavin yoki Mis gidroksidi (Kuproksat, Kosayd) purkaş.",
+        "prevention": "Uruğlarni termik yoki kimyoviy tozalash, 3 yil pomidor ekmaslik."
     },
     "Tomato___Early_blight": {
         "plant": "Pomidor",
-        "disease": "Alternarioz (Erta kuyish)",
+        "disease": "Alternarioz (Erta kuyiş)",
         "pathogen": "Alternaria solani",
         "severity": "Yuqori",
         "is_healthy": False,
-        "symptoms": "Pastki barglarda halqasimon konsentrik jigarrang quruq dog'lar, sarg'ayish.",
-        "causes": "Namlik va yuqori harorat (24-29°C), o'simlikning zaiflashishi.",
-        "treatment": "Skor, Kvadris yoki Bravo fungitsidlari bilan 10-12 kunda ishlov berish.",
-        "prevention": "Pastki barglarni yulish, ildizdan sug'orish."
+        "symptoms": "Pastki barglarda halqasimon konsentrik jigarrang quruq doğlar, sarğayiş.",
+        "causes": "Namlik va yuqori harorat (24-29°C), ösimlikning zaiflaşiși.",
+        "treatment": "Skor, Kvadris yoki Bravo fungitsidlari bilan 10-12 kunda işlov beriş.",
+        "prevention": "Pastki barglarni yuliş, ildizdan suğoriş."
     },
     "Tomato___Late_blight": {
         "plant": "Pomidor",
-        "disease": "Fitoftoroz (Kechki chirish)",
+        "disease": "Fitoftoroz (Keçki çiriş)",
         "pathogen": "Phytophthora infestans",
-        "severity": "O'ta xavfli",
+        "severity": "Öta xavfli",
         "is_healthy": False,
-        "symptoms": "Barglarda kulrang-yashil suvli tez o'suvchi dog'lar, barg orqasida oq g'ubor, mevalarning qorayishi.",
-        "causes": "Harorat 15-22°C bo'lganda yuqori namlik (tuman, doimiy shudring).",
-        "treatment": "Ridomil Gold, Infinito, Previkur Enerji yoki Konsento zudlik bilan qo'llanadi.",
-        "prevention": "Issiqxonalarni yaxshi shamollatish, kartoshka maydonlaridan uzoqda ekish."
+        "symptoms": "Barglarda kulrang-yaşil suvli tez ösuvçi doğlar, barg orqasida oq ğubor, mevalarning qorayişi.",
+        "causes": "Harorat 15-22°C bölganida yuqori namlik (tuman, doimiy şudring).",
+        "treatment": "Ridomil Gold, Infinito, Previkur Enerji yoki Konsento zudlik bilan qöllanadi.",
+        "prevention": "Issiqxonalarni yaxşi şamollatiş, kartoşka maydonlaridan uzoqda ekiş."
     },
     "Tomato___Leaf_Mold": {
         "plant": "Pomidor",
-        "disease": "Barg mog'ori (Kladosporioz)",
+        "disease": "Barg moğori (Kladosporioz)",
         "pathogen": "Passalora fulva",
-        "severity": "O'rta-Yuqori",
+        "severity": "Örta-Yuqori",
         "is_healthy": False,
-        "symptoms": "Barg ustida och sarg'ish dog'lar, pastki tomonida esa zaytunrang baxmalsimon mog'or qatlami.",
-        "causes": "Issiqxonalarda 85% dan yuqori namlik va havoning dim bo'lishi.",
-        "treatment": "Xorus, Fundazol yoki Abiga-Pik fungitsidlarini purkash.",
-        "prevention": "Issiqxona namligini 70% dan oshirmaslik, havoni yaxshi aylantirish."
+        "symptoms": "Barg ustida oç sarğiş doğlar, pastki tomonida esa zaytunrang baxmalsimon moğor qatlami.",
+        "causes": "Issiqxonalarda 85% dan yuqori namlik va havoning dim bölişi.",
+        "treatment": "Xorus, Fundazol yoki Abiga-Pik fungitsidlarini purkaş.",
+        "prevention": "Issiqxona namligini 70% dan oşirmaslik, havoni yaxşi aylantiriş."
     },
     "Tomato___Septoria_leaf_spot": {
         "plant": "Pomidor",
-        "disease": "Septorioz (Oq dog'lanish)",
+        "disease": "Septorioz (Oq doğlaniş)",
         "pathogen": "Septoria lycopersici",
         "severity": "Yuqori",
         "is_healthy": False,
-        "symptoms": "Barglarda markazi och kulrang, hoshiyasi qora mayda ko'p sonli dumaloq dog'lar.",
-        "causes": "Tuproqdagi zamburug' sporalari suv tomchilari bilan pastki barglarga sachrashi.",
-        "treatment": "Mankotseb, Xlorotalonil yoki Kvadris purkash.",
-        "prevention": "Tuproqni mulchalash (somon yoki plyonka bilan yopish)."
+        "symptoms": "Barglarda markazi oç kulrang, hoşiyasi qora mayda köp sonli dumaloq doğlar.",
+        "causes": "Tuproqdagi zamburuğ sporalari suv tomçilari bilan pastki barglarga saçraşi.",
+        "treatment": "Mankotseb, Xlorotalonil yoki Kvadris purkaş.",
+        "prevention": "Tuproqni mulçalash (somon yoki plyonka bilan yopiş)."
     },
     "Tomato___Spider_mites Two-spotted_spider_mite": {
         "plant": "Pomidor",
-        "disease": "O'rgimchakkana zararlanishi (Spider Mites)",
+        "disease": "Örgimçakkana zararlanişi (Spider Mites)",
         "pathogen": "Tetranychus urticae (Zararkunanda kana)",
         "severity": "Jiddiy",
         "is_healthy": False,
-        "symptoms": "Barg ustida mayda oq-sariq nuqtachalar, barg ostida nozik o'rgimchak to'ri, barg qurishi.",
+        "symptoms": "Barg ustida mayda oq-sariq nuqtaçalar, barg ostida nozik örgimçak töri, barg qurişi.",
         "causes": "Issiq va juda quruq ob-havo (30°C+).",
         "treatment": "Akaritsidlar: Vertimek, Omite, Envidor yoki Fitoverm.",
-        "prevention": "Havoning haddan tashqari quruq bo'lib ketishiga yo'l qo'ymaslik, begona o'tlarni yo'qotish."
+        "prevention": "Havoning haddan taşqari quruq bölib ketişiga yöl qöymaslik, begona ötlarni yöqotiş."
     },
     "Tomato___Target_Spot": {
         "plant": "Pomidor",
-        "disease": "Nishonsimon dog'lanish (Target Spot)",
+        "disease": "Nişonsimon doğlaniş (Target Spot)",
         "pathogen": "Corynespora cassiicola",
-        "severity": "O'rta",
+        "severity": "Örta",
         "is_healthy": False,
-        "symptoms": "Barglarda markazi nishon shaklidagi konsentrik doirali jigarrang dog'lar.",
-        "causes": "Iliq va nam sharoit, ekinlarning qalinligi.",
+        "symptoms": "Barglarda markazi nişon şaklidagi konsentrik doirali jigarrang doğlar.",
+        "causes": "Iliq va nam şaroit, ekinlarning qalinligi.",
         "treatment": "Azoksistrobin yoki Mis asosli preparatlar.",
-        "prevention": "O'simliklar orasida yetarli masofani saqlash."
+        "prevention": "Ösimliklar orasida yetarli masofani saqlaş."
     },
     "Tomato___Tomato_Yellow_Leaf_Curl_Virus": {
         "plant": "Pomidor",
-        "disease": "Sariq barg bujmayishi virusi (TYLCV)",
+        "disease": "Sariq barg bujmayişi virusi (TYLCV)",
         "pathogen": "Begomovirus (Virus)",
-        "severity": "O'ta xavfli",
+        "severity": "Öta xavfli",
         "is_healthy": False,
-        "symptoms": "Barglar yuqoriga qarab qoshiqsimon bujmayadi, sarg'ayadi, o'simlik pakana bo'lib qoladi.",
-        "causes": "Oqqanot (Bemisia tabaci) hasharoti orqali tarqaladi.",
-        "treatment": "Virusga qarshi kimyoviy dori yo'q. Faqat oqqanotni yo'qotish kerak (Mospilan, Teppeki).",
-        "prevention": "Sariq yelimli tuzoqlar o'rnatish, to'rlar bilan issiqxonani himoyalash."
+        "symptoms": "Barglar yuqoriga qarab qoşiqsimon bujmayadi, sarğayadi, ösimlik pakana bölib qoladi.",
+        "causes": "Oqqanot (Bemisia tabaci) haşaroti orqali tarqaladi.",
+        "treatment": "Virusga qarşi kimyoviy dori yöq. Faqat oqqanotni yöqotiş kerak (Mospilan, Teppeki).",
+        "prevention": "Sariq yelimli tuzoqlar örnatiş, törlar bilan issiqxonani himoyalaş."
     },
     "Tomato___Tomato_mosaic_virus": {
         "plant": "Pomidor",
@@ -449,20 +450,20 @@ DISEASE_INFO = {
         "pathogen": "Tobamovirus (Virus)",
         "severity": "Yuqori",
         "is_healthy": False,
-        "symptoms": "Barglarda och va to'q yashil mozaik dog'lar, barglarning ipdek ingichkalashib qolishi (\"ipbarglik\").",
-        "causes": "Mexanik yo'l bilan (ish qurollari, xomtok paytida qo'l orqali) va urug' orqali o'tadi.",
-        "treatment": "Davo choralari yo'q. Kasal o'simlik zudlik bilan ildizi bilan yoqiladi.",
-        "prevention": "Ish qurollarini 10% li xlor yoki kaliy permanganat bilan doimiy dezinfeksiya qilish."
+        "symptoms": "Barglarda oç va töq yaşil mozaik doğlar, barglarning ipdek ingiçkalaşib qolişi (\"ipbarglik\").",
+        "causes": "Mexanik yöl bilan (iş qurollari, xomtok paytida qöl orqali) va uruğ orqali ötadi.",
+        "treatment": "Davo çoralari yöq. Kasal ösimlik zudlik bilan ildizi bilan yoqiladi.",
+        "prevention": "İş qurollarini 10% li xlor yoki kaliy permanganat bilan doimiy dezinfeksiya qiliş."
     },
     "Tomato___healthy": {
         "plant": "Pomidor",
-        "disease": "Sog'lom pomidor bargi",
+        "disease": "Soğlom pomidor bargi",
         "pathogen": "Mavjud emas",
         "severity": "Xavfsiz",
         "is_healthy": True,
-        "symptoms": "To'q yashil, sersuv va shikastlanishsiz toza barglar.",
-        "causes": "To'g'ri o'g'itlash va profilaktik nazorat.",
+        "symptoms": "Töq yaşil, sersuv va şikastlanişsiz toza barglar.",
+        "causes": "Töğri ög‘itlaş va profilaktik nazorat.",
         "treatment": "Davo talab etilmaydi.",
-        "prevention": "Haftalik agronomik ko'rik."
+        "prevention": "Haftalik agronomik körik."
     }
 }

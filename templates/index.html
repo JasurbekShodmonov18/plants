@@ -3,14 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AgroAI - O'simliklar Kasalliklarini Sun'iy Intellekt Bilan Tasniflash</title>
-  <meta name="description" content="Chuqur o'qitish (Deep Learning) va kompyuter ko'rishi algoritmlari orqali o'simlik barglari kasalliklarini aniqlash, tashxis qo'yish va agronomik davo tavsiyalarini olish platformasi.">
-  <meta name="keywords" content="o'simlik kasalliklari, deep learning, plant disease classification, pomidor fitoftorasi, agro ai, cnn model, agrotavsiya">
+  <title>AgroAI — Ösimliklar Kasalliklarini Çuqur Öqitiş Bilan Tasniflaş</title>
+  <meta name="description" content="Çuqur öqitiş (Deep Learning) va kompyuter körişi algoritmlari orqali ösimlik barglari kasalliklarini aniqlaş, taşxis qöyiş va agronomik davolaş tavsiyalarini oliş platformasi.">
+  <meta name="keywords" content="ösimlik kasalliklari, deep learning, plant disease, cnn model, agro ai, agrotavsiya, pomidor, olma, kartoşka">
 
   <link rel="stylesheet" href="/static/css/style.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
 </head>
 <body>
+
+  <!-- Ambient Background Glows -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
 
   <!-- Navigation -->
   <header class="navbar">
@@ -18,18 +22,18 @@
       <nav class="nav-container">
         <a href="/" class="logo" id="brandLogo">
           <div class="logo-icon">🌿</div>
-          <span>AgroAI</span>
+          <span class="logo-text">AgroAI</span>
           <span class="logo-badge">Deep Learning</span>
         </a>
 
         <ul class="nav-links">
-          <li><a href="#diagnostics" class="active" id="navDiagnose">Tashxis</a></li>
-          <li><a href="#dl-architecture" id="navDl">Model Tuzilishi</a></li>
+          <li><a href="#diagnostics" class="active" id="navDiagnose">Taşxis</a></li>
+          <li><a href="#dl-architecture" id="navDl">Model Tuzilişi</a></li>
           <li><a href="#encyclopedia" id="navEncyclopedia">Ensiklopediyasi</a></li>
         </ul>
 
         <div class="nav-actions">
-          <button class="theme-toggle-btn" id="themeToggle" title="Mavzuni o'zgartirish" aria-label="Toggle Theme">
+          <button class="theme-toggle-btn" id="themeToggle" title="Mavzuni özgartiriş" aria-label="Toggle Theme">
             ☀️
           </button>
         </div>
@@ -42,13 +46,16 @@
     <section class="hero">
       <div class="container">
         <div class="hero-pill">
-          <span>⚡ Konvolyutsion Neyron To'ri (CNN) 2.0</span>
+          <span class="pulsing-dot"></span>
+          <span>Konvolyutsion Neyron Töri (CNN) 2.0</span>
         </div>
+        
         <h1 class="hero-title">
-          O'simliklar Kasalliklarini <span class="gradient-text">Chuqur O'qitish</span> Bilan Aniqlang
+          Ösimliklar Kasalliklarini <span class="gradient-text">Çuqur Öqitiş</span> Bilan Aniqlang
         </h1>
+        
         <p class="hero-subtitle">
-          Barg suratini yuklang yoki kamera orqali oling — sun'iy intellekt patogenni bir lahzada aniqlab, professional agronomik davolash va himoya choralarini taqdim etadi.
+          Barg suratini yuklañg yoki kamera orqali oliñg — sun'iy intellekt patogenni bir lahzada aniqlab, professional agronomik davolaş va himoya çoralarini taqdim etadi.
         </p>
 
         <!-- Stats Bar -->
@@ -93,23 +100,23 @@
         <div class="upload-card glass">
           <div class="card-header">
             <h2 class="card-title">
-              <span>📷</span> Barg Tasvirini Kiritish
+              <span>📷</span> Barg Tasvirini Kiritiş
             </h2>
             <div class="tabs-nav">
-              <button class="tab-btn active" id="uploadTabBtn">Rasm Yuklash</button>
-              <button class="tab-btn" id="cameraTabBtn">Kamera</button>
+              <button class="tab-btn active" id="uploadTabBtn">Rasm Yuklaş</button>
+              <button class="tab-btn" id="cameraTabBtn">Jonli Kamera</button>
             </div>
           </div>
 
           <!-- File Dropzone -->
           <div class="dropzone-area" id="dropzone">
             <div class="dropzone-icon">🍃</div>
-            <div class="dropzone-title">Barg rasmini tanlang yoki suratga oling</div>
-            <div class="dropzone-hint">JPG, PNG yoki WEBP (telefon va kompyuter uchun)</div>
+            <div class="dropzone-title">Barg rasmini tanlañg yoki suratga oliñg</div>
+            <div class="dropzone-hint">JPG, PNG yoki WEBP formatlari qabul qilinadi</div>
             
             <div class="dropzone-action-btns">
-              <button type="button" class="btn-browse" id="browseBtn">📁 Galereyadan Tanlash</button>
-              <button type="button" class="btn-mobile-camera" id="mobileCameraBtn">📸 Kameradan Olish</button>
+              <button type="button" class="btn-browse" id="browseBtn">📁 Galereyadan Tanlaş</button>
+              <button type="button" class="btn-mobile-camera" id="mobileCameraBtn">📸 Kameradan Oliş</button>
             </div>
             
             <input type="file" id="fileInput" class="file-input" accept="image/*">
@@ -120,15 +127,15 @@
           <div class="camera-container" id="cameraArea">
             <video id="cameraVideo" class="camera-preview" autoplay playsinline></video>
             <div class="camera-actions">
-              <button type="button" class="btn-browse" id="captureBtn">📸 Suratga Olish</button>
-              <button type="button" class="tab-btn" id="stopCameraBtn">Bekor qilish</button>
+              <button type="button" class="btn-browse" id="captureBtn">📸 Suratga Oliş</button>
+              <button type="button" class="tab-btn" id="stopCameraBtn">Bekor qiliş</button>
             </div>
           </div>
 
           <!-- Sample Quick-Test Cards -->
           <div class="samples-wrapper">
             <div class="samples-label">
-              <span>✨</span> Bir marta bosish bilan sinab ko'rish uchun namunalar:
+              <span>✨</span> Bir marta bosiş bilan sinab köriş uçun namunalar:
             </div>
             <div class="samples-grid">
               <div class="sample-card" data-img="/static/images/samples/tomato_late_blight.jpg" data-filename="tomato_late_blight.jpg">
@@ -137,15 +144,15 @@
               </div>
               <div class="sample-card" data-img="/static/images/samples/apple_cedar_rust.jpg" data-filename="apple_cedar_rust.jpg">
                 <img src="/static/images/samples/apple_cedar_rust.jpg" alt="Olma zangi" class="sample-thumb">
-                <div class="sample-name">Olma (Zang)</div>
+                <div class="sample-name">Olma (Zañg)</div>
               </div>
               <div class="sample-card" data-img="/static/images/samples/corn_leaf_blight.jpg" data-filename="corn_leaf_blight.jpg">
-                <img src="/static/images/samples/corn_leaf_blight.jpg" alt="Makkajo'xori barg kuyishi" class="sample-thumb">
-                <div class="sample-name">Makkajo'xori (Kuyish)</div>
+                <img src="/static/images/samples/corn_leaf_blight.jpg" alt="Makkajöxori barg kuyishi" class="sample-thumb">
+                <div class="sample-name">Makkajöxori (Kuyiş)</div>
               </div>
               <div class="sample-card" data-img="/static/images/samples/grape_black_rot.jpg" data-filename="grape_black_rot.jpg">
                 <img src="/static/images/samples/grape_black_rot.jpg" alt="Uzum qora chirishi" class="sample-thumb">
-                <div class="sample-name">Uzum (Qora chirish)</div>
+                <div class="sample-name">Uzum (Qora çiriş)</div>
               </div>
             </div>
           </div>
@@ -155,24 +162,24 @@
         <div class="results-card glass">
           <div class="card-header">
             <h2 class="card-title">
-              <span>🔬</span> Tashxis va AI Xulosasi
+              <span>🔬</span> Taşxis va AI Xulosasi
             </h2>
           </div>
 
           <!-- Empty State -->
           <div class="placeholder-state" id="placeholderState">
             <div class="placeholder-icon">🌱</div>
-            <div style="font-weight: 700; margin-bottom: 6px;">Tahlil boshlanmadi</div>
+            <div style="font-weight: 700; margin-bottom: 6px;">Tahlil başlanmadi</div>
             <p style="font-size: 0.88rem; max-width: 320px;">
-              Barg suratini yuklang yoki namunalar ustiga bosing — chuqur o'qitish modeli natijani shu yerda ko'rsatadi.
+              Barg suratini yuklañg yoki namuna ustiga bosiñg — çuqur öqitiş modeli natijani şu yerda körsatadi.
             </p>
           </div>
 
           <!-- Loading State -->
           <div id="loadingState" style="display: none; text-align: center; padding: 60px 20px;">
             <div class="spinner"></div>
-            <div style="font-weight: 700; margin-bottom: 6px;">Neyron to'ri tasvirni tahlil qilmoqda...</div>
-            <div style="font-size: 0.82rem; color: var(--text-muted);">Piksellar normalizatsiyasi va patogen belgilari qidirilmoqda</div>
+            <div style="font-weight: 700; margin-bottom: 6px;">Neyron töri tasvirni tahlil qilmoqda...</div>
+            <div style="font-size: 0.82rem; color: var(--text-muted);">Piksellar normalizatsiyasi va patogen belgilari aniqlanmoqda</div>
           </div>
 
           <!-- Result Content -->
@@ -180,18 +187,18 @@
             <!-- Hero summary -->
             <div class="result-hero">
               <div class="result-image-box">
-                <img id="resultThumb" src="" alt="Tekshirilgan barg">
+                <img id="resultThumb" src="" alt="Tekşirilgan barg">
               </div>
               <div class="result-meta">
-                <span class="severity-tag" id="resultSeverity">O'rta</span>
+                <span class="severity-tag" id="resultSeverity">Örta</span>
                 <div style="font-size: 0.82rem; color: var(--text-muted);" id="resultPlant">Pomidor</div>
-                <h3 class="result-title" id="resultDisease">Fitoftoroz (Late Blight)</h3>
+                <h3 class="result-title" id="resultDisease">Fitoftoroz (Keçki çiriş)</h3>
                 <div class="result-latin" id="resultPathogen">Phytophthora infestans</div>
 
                 <!-- Confidence bar -->
                 <div class="confidence-bar-wrapper">
                   <div class="confidence-label">
-                    <span>Model ishonch darajasi:</span>
+                    <span>Model işonç darajasi:</span>
                     <span id="confidenceVal">98.5%</span>
                   </div>
                   <div class="progress-bar-bg">
@@ -212,14 +219,14 @@
 
               <div class="info-box">
                 <div class="info-box-title">
-                  <span>🦠</span> Rivojlanish Sababi va Muhit
+                  <span>🦠</span> Rivojlaniş Sababi va Muhit
                 </div>
                 <div class="info-box-text" id="textCauses">--</div>
               </div>
 
               <div class="info-box">
                 <div class="info-box-title">
-                  <span>💊</span> Davolash Choralari (Agro-retsept)
+                  <span>💊</span> Davolaş Çoralari (Agro-retsept)
                 </div>
                 <div class="info-box-text" id="textTreatment">--</div>
               </div>
@@ -237,7 +244,7 @@
 
             <!-- Top Candidates -->
             <div class="candidates-block">
-              <div class="candidates-title">Boshqa ehtimolli variantlar</div>
+              <div class="candidates-title">Boşqa ehtimolli variantlar</div>
               <div id="candidatesList"></div>
             </div>
           </div>
@@ -250,41 +257,41 @@
     <!-- Deep Learning Architecture Explainer -->
     <section class="dl-section container" id="dl-architecture">
       <div class="section-head">
-        <h2 class="section-title">Chuqur O'qitish (Deep Learning) Qanday Ishlaydi?</h2>
+        <h2 class="section-title">Çuqur Öqitiş (Deep Learning) Qanday İşlaydi?</h2>
         <p class="section-subtitle">
-          Tizim Konvolyutsion Neyron To'rlari (CNN / Transfer Learning) orqali bargning mikroskopik dog'lari, rang g'ubori va qirralarini tahlil qiladi.
+          Tizim Konvolyutsion Neyron Törlari (CNN / Transfer Learning) orqali bargning mikroskopik doğlari, rang ğubori va qirralarini tahlil qiladi.
         </p>
       </div>
 
       <div class="pipeline-flow">
         <div class="pipeline-step">
           <div class="step-num">1</div>
-          <h3 class="step-title">Tasvirni Kiritish</h3>
-          <p class="step-desc">Foydalanuvchi yuklagan barg surati 224x224 RGB o'lchamiga keltiriladi va normalizatsiya qilinadi.</p>
+          <h3 class="step-title">Tasvirni Kiritiş</h3>
+          <p class="step-desc">Foydalanuvçi yuklagan barg surati 224x224 RGB ölçamiga keltiriladi va normalizatsiya qilinadi.</p>
         </div>
 
         <div class="pipeline-step">
           <div class="step-num">2</div>
           <h3 class="step-title">Konvolyutsiya (CNN)</h3>
-          <p class="step-desc">Filtrlar orqali bargning tomir tuzilishi, nekroz dog'lari va xloroz o'zgarishlari ajratib olinadi.</p>
+          <p class="step-desc">Filtrlar orqali bargning tomir tuzilişi, nekroz doğlari va xloroz özgarişlari ajratib olinadi.</p>
         </div>
 
         <div class="pipeline-step">
           <div class="step-num">3</div>
           <h3 class="step-title">Feature Extraction</h3>
-          <p class="step-desc">Chuqur qatlamlarda zamburug' yoki bakterial zararlanishning o'ziga xos geometrik xaritasi hosil bo'ladi.</p>
+          <p class="step-desc">Çuqur qatlamlarda zamburuğ yoki bakterial zararlanişning öziga xos geometrik xaritasi hosil böladi.</p>
         </div>
 
         <div class="pipeline-step">
           <div class="step-num">4</div>
           <h3 class="step-title">Dense & Softmax</h3>
-          <p class="step-desc">To'liq bog'langan qatlam 38 xil kasallik sinfi bo'yicha ehtimollik taqsimotini hisoblaydi.</p>
+          <p class="step-desc">Töliq boğlangan qatlam 38 xil kasallik sinfi böyiça ehtimollik taqsimotini hisoblaydi.</p>
         </div>
 
         <div class="pipeline-step">
           <div class="step-num">5</div>
           <h3 class="step-title">Agro-Maslahat</h3>
-          <p class="step-desc">Eng yuqori ishonchli kasallik bo'yicha ilmiy tasdiqlangan kimyoviy va biologik retsept beriladi.</p>
+          <p class="step-desc">Eng yuqori işonçli kasallik böyiça ilmiy tasdiqlangan kimyoviy va biologik retsept beriladi.</p>
         </div>
       </div>
     </section>
@@ -292,25 +299,25 @@
     <!-- Plant Disease Encyclopedia -->
     <section class="encyclopedia-section container" id="encyclopedia">
       <div class="section-head">
-        <h2 class="section-title">O'simlik Kasalliklari Ensiklopediyasi</h2>
+        <h2 class="section-title">Ösimlik Kasalliklari Ensiklopediyasi</h2>
         <p class="section-subtitle">
-          Platforma bazasidagi barcha 38 xil o'simlik kasalligi, ularning patogenlari va davolash qoidalari bilan tanishing.
+          Platforma bazasidagi barça 38 xil ösimlik kasalligi, ularning patogenlari va davolaş qoidalari bilan tanişiñg.
         </p>
       </div>
 
       <div class="encyclopedia-filter-bar">
         <div class="search-box-wrapper">
           <span class="search-icon">🔍</span>
-          <input type="text" id="searchInput" class="search-input" placeholder="Kasallik yoki o'simlik nomini qidiring (masalan: Fitoftora, Pomidor, Olma)...">
+          <input type="text" id="searchInput" class="search-input" placeholder="Kasallik yoki ösimlik nomini qidiriñg (masalan: Pomidor, Olma, Kartoşka, Fitoftora)...">
         </div>
 
         <div class="filter-chips" id="filterChips">
-          <button class="chip-btn active" data-filter="all">Barchasi</button>
+          <button class="chip-btn active" data-filter="all">Barçasi</button>
         </div>
       </div>
 
       <div class="disease-grid" id="encyclopediaGrid">
-        <!-- Dynamically populated via JS -->
+        <!-- JS orqali dinamik töldiriladi -->
       </div>
     </section>
   </main>
@@ -319,7 +326,7 @@
   <div class="modal-overlay" id="diseaseModal">
     <div class="modal-card">
       <button class="modal-close-btn" id="modalCloseBtn">&times;</button>
-      <div style="font-size: 0.85rem; color: var(--accent-green); font-weight: 700; margin-bottom: 4px;" id="modalPlant">O'simlik</div>
+      <div style="font-size: 0.85rem; color: var(--accent-green); font-weight: 700; margin-bottom: 4px;" id="modalPlant">Ösimlik</div>
       <h3 style="font-family: var(--font-heading); font-size: 1.6rem; margin-bottom: 4px;" id="modalTitle">Kasallik Nomi</h3>
       <div style="color: var(--text-muted); font-size: 0.9rem; font-style: italic; margin-bottom: 20px;" id="modalPathogen">Patogen</div>
 
@@ -329,11 +336,11 @@
           <div class="info-box-text" id="modalSymptoms"></div>
         </div>
         <div class="info-box">
-          <div class="info-box-title"><span>🦠</span> Sabablari va Rivojlanish Sharoiti</div>
+          <div class="info-box-title"><span>🦠</span> Sabablari va Rivojlaniş Şaroiti</div>
           <div class="info-box-text" id="modalCauses"></div>
         </div>
         <div class="info-box">
-          <div class="info-box-title"><span>💊</span> Davolash Choralari (Fungitsid va Biologik vositalar)</div>
+          <div class="info-box-title"><span>💊</span> Davolaş Çoralari (Fungitsid va Biologik vositalar)</div>
           <div class="info-box-text" id="modalTreatment"></div>
         </div>
         <div class="info-box">
@@ -348,10 +355,10 @@
   <footer class="footer">
     <div class="container">
       <p>
-        🌿 <strong>AgroAI</strong> — Chuqur o'qitish algoritmlari orqali o'simliklar kasalliklarini tasniflash platformasi.
+        🌿 <strong>AgroAI</strong> — Çuqur öqitiş algoritmlari orqali ösimliklar kasalliklarini tasniflaş platformasi.
       </p>
       <p style="margin-top: 8px;">
-        PlantVillage Dataset & Convolutional Neural Network (CNN) arxitekturasi asosida ishlab chiqilgan.
+        PlantVillage Dataset & Convolutional Neural Network (CNN) arxitekturasi asosida işlab çiqilgan.
       </p>
     </div>
   </footer>

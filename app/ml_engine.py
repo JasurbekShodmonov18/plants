@@ -133,11 +133,11 @@ class PlantClassifier:
             },
             "top_candidates": top_predictions,
             "visual_features": {
-                "xlorofill_soglomlik": round(features["green_healthy"] * 100, 1),
-                "xloroz_sargayish": round(features["yellow_chlorosis"] * 100, 1),
-                "nekroz_qongir_dog": round(features["brown_necrosis"] * 100, 1),
-                "zang_doglari": round(features["rust_orange"] * 100, 1),
-                "unsimon_gubor": round(features["white_powdery"] * 100, 1)
+                "xlorofill_soğlomlik": round(features["green_healthy"] * 100, 1),
+                "xloroz_sarğayiş": round(features["yellow_chlorosis"] * 100, 1),
+                "nekroz_qöñğir_doğ": round(features["brown_necrosis"] * 100, 1),
+                "zañg_doğlari": round(features["rust_orange"] * 100, 1),
+                "unsimon_ğubor": round(features["white_powdery"] * 100, 1)
             }
         }
 
