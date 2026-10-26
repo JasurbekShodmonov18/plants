@@ -104,10 +104,16 @@
           <!-- File Dropzone -->
           <div class="dropzone-area" id="dropzone">
             <div class="dropzone-icon">🍃</div>
-            <div class="dropzone-title">Barg rasmini shu yerga tashlang</div>
-            <div class="dropzone-hint">JPG, PNG yoki WEBP (maksimal 15 MB)</div>
-            <button type="button" class="btn-browse" id="browseBtn">Faylni Tanlash</button>
+            <div class="dropzone-title">Barg rasmini tanlang yoki suratga oling</div>
+            <div class="dropzone-hint">JPG, PNG yoki WEBP (telefon va kompyuter uchun)</div>
+            
+            <div class="dropzone-action-btns">
+              <button type="button" class="btn-browse" id="browseBtn">📁 Galereyadan Tanlash</button>
+              <button type="button" class="btn-mobile-camera" id="mobileCameraBtn">📸 Kameradan Olish</button>
+            </div>
+            
             <input type="file" id="fileInput" class="file-input" accept="image/*">
+            <input type="file" id="mobileCameraInput" class="file-input" accept="image/*" capture="environment">
           </div>
 
           <!-- Live Camera View -->

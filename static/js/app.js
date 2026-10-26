@@ -99,13 +99,32 @@ document.addEventListener('DOMContentLoaded', () => {
   // -----------------------------------------------------------------
   // File Upload Handlers
   // -----------------------------------------------------------------
+  const mobileCameraBtn = document.getElementById('mobileCameraBtn');
+  const mobileCameraInput = document.getElementById('mobileCameraInput');
+
   browseBtn.addEventListener('click', (e) => {
     e.stopPropagation();
     fileInput.click();
   });
 
-  dropzone.addEventListener('click', () => {
-    fileInput.click();
+  if (mobileCameraBtn && mobileCameraInput) {
+    mobileCameraBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      mobileCameraInput.click();
+    });
+
+    mobileCameraInput.addEventListener('change', () => {
+      if (mobileCameraInput.files.length > 0) {
+        handleFile(mobileCameraInput.files[0]);
+      }
+    });
+  }
+
+  dropzone.addEventListener('click', (e) => {
+    // Tugmalarga bosilganda qayta ochmaslik
+    if (e.target !== browseBtn && e.target !== mobileCameraBtn) {
+      fileInput.click();
+    }
   });
 
   fileInput.addEventListener('change', () => {
