@@ -371,17 +371,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-    // Normalizer function for seamless search in both old and new orthography
-    function normalizeUz(str) {
-      if (!str) return '';
-      return str.toLowerCase()
-        .replace(/sh/g, 'ş')
-        .replace(/ch/g, 'ç')
-        .replace(/o['‘ʻ`]/g, 'ö')
-        .replace(/g['‘ʻ`]/g, 'ğ')
-        .replace(/ñ/g, 'ng');
-    }
+  function normalizeUz(str) {
+    if (!str) return '';
+    return str.toLowerCase()
+      .replace(/sh/g, 'ş')
+      .replace(/ch/g, 'ç')
+      .replace(/o['‘ʻ`]/g, 'ö')
+      .replace(/g['‘ʻ`]/g, 'ğ')
+      .replace(/ñ/g, 'ng');
+  }
 
+  function renderEncyclopedia() {
     const query = normalizeUz(searchInput.value.trim());
     encyclopediaGrid.innerHTML = '';
 
