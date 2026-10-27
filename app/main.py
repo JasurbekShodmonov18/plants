@@ -59,11 +59,20 @@ async def predict_plant_disease(file: UploadFile = File(...)):
             raise HTTPException(status_code=400, detail="Rasm hajmi 15MB dan oshmasligi kerak.")
         
         result = classifier.predict(contents, filename=file.filename or "")
-        return JSONResponse(content={"success": True, "data": result})
+        if not result.get("is_plant", True):
+            return JSONResponse(content={
+                "success": False,
+                "is_plant": False,
+                "error": result.get("error", "Yuklangan rasmda ösimlik bargi aniqlanmadi!"),
+                "reason": result.get("reason", ""),
+                "metrics": result.get("metrics", {})
+            })
+
+        return JSONResponse(content={"success": True, "is_plant": True, "data": result})
     except Exception as e:
         return JSONResponse(
             status_code=500,
-            content={"success": False, "error": f"Tahlil jarayonida xatolik yuz berdi: {str(e)}"}
+            content={"success": False, "is_plant": False, "error": f"Tahlil jarayonida xatolik yuz berdi: {str(e)}"}
         )
 
 

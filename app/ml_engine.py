@@ -81,11 +81,71 @@ class PlantClassifier:
             "dark_blackrot": float(dark_blackrot)
         }
 
+    def check_is_plant_leaf(self, image: Image.Image) -> tuple[bool, str, dict]:
+        """
+        1-bosqich tekşiruv (PlantNet uslubi):
+        Rasmda haqiqatan ham ösimlik to'qimalari (xlorofill, barg pigmentlari, barg sathi)
+        mavjudligini tekşiradi. Agar rasmda ösimlik bölmasa, tahlil darhol töxtatiladi.
+        """
+        img = image.convert("RGB").resize((128, 128))
+        arr = np.array(img, dtype=np.float32)
+        r, g, b = arr[:, :, 0], arr[:, :, 1], arr[:, :, 2]
+        total_pixels = 128 * 128
+
+        # 1. Excess Green Index (ExG = 2*G - R - B)
+        exg = 2 * g - r - b
+        exg_positive_ratio = float(np.sum(exg > 8) / total_pixels)
+
+        # 2. Ösimlik to'qimalari rang spektri (yaşil xlorofill, sarğiş xloroz, quruq nekroz barg)
+        is_green = (g > r * 1.04) & (g > b * 1.06) & (g > 32)
+        is_yellow = (r > 90) & (g > 80) & (b < 95) & (np.abs(r - g) < 45)
+        is_brown = (r > 45) & (r < 175) & (g > 25) & (g < r * 0.96) & (b < g * 0.92)
+        botanical_ratio = float(np.sum(is_green | is_yellow | is_brown) / total_pixels)
+
+        # 3. Ösimlikka yot ranglar (kök, osmon, jinsi, neon, buyumlar)
+        is_blue = (b > r * 1.15) & (b > g * 1.15) & (b > 60)
+        blue_ratio = float(np.sum(is_blue) / total_pixels)
+
+        # 4. Tekstura / relyef dispersiyasi (tekis oq qog'oz yoki sun'iy fon bölsa)
+        grayscale = 0.299 * r + 0.587 * g + 0.114 * b
+        texture_std = float(np.std(grayscale))
+
+        metrics = {
+            "botanical_ratio": round(botanical_ratio * 100, 1),
+            "exg_positive_ratio": round(exg_positive_ratio * 100, 1),
+            "blue_ratio": round(blue_ratio * 100, 1),
+            "texture_std": round(texture_std, 1)
+        }
+
+        # Agar tekis böş tasvir bölsa
+        if texture_std < 8.0:
+            return False, "Rasmda yetarli detal yoki relyef aniqlanmadi (tekis yoki böş tasvir).", metrics
+
+        # Agar kök / osmon / bino ranglari ustunlik qilsa
+        if blue_ratio > 0.35 and botanical_ratio < 0.20:
+            return False, "Rasmda ösimlikka xos bölmagan ranglar ustunlik qilmoqda.", metrics
+
+        # Asosiy barg piksellari yetarli bölmasa
+        if botanical_ratio < 0.16 and exg_positive_ratio < 0.10:
+            return False, "Rasmda ösimlik bargining xlorofill yoki to'qima belgilari aniqlanmadi.", metrics
+
+        return True, "Ösimlik bargi aniqlandi.", metrics
+
     def predict(self, image_bytes: bytes, filename: str = ""):
-        """Tasvirni qabul qilib, chuqur tahlil qiladi va eng yuqori ehtimolliklarni qaytaradi."""
+        """Tasvirni qabul qilib, 2 bosqichli tahlil qiladi."""
         image = Image.open(io.BytesIO(image_bytes))
-        
-        # 1. Agar ONNX model yuklangan bo'lsa, undan bashorat olamiz
+
+        # 1-BOSQICH: Ösimlik bargi mavjudligini tekşiriş
+        is_plant, reason, metrics = self.check_is_plant_leaf(image)
+        if not is_plant:
+            return {
+                "is_plant": False,
+                "error": "Yuklangan rasmda ösimlik bargi aniqlanmadi! Tizim faqat qişloq xöjaligi ekinlari barglari kasalliklarini taşxis qilişga möljallangan. Iltimos, ösimlik bargining yaqindan olingan tiniq suratini yuklañg.",
+                "reason": reason,
+                "metrics": metrics
+            }
+
+        # 2-BOSQICH: Kasallikni tasniflaş (Classification)
         if self.session is not None:
             try:
                 input_tensor = self.preprocess_image(image)
@@ -100,7 +160,6 @@ class PlantClassifier:
                 print(f"[Inference Error] Model tahlilida xatolik: {e}")
                 probabilities = self._heuristic_prediction(image, filename)
         else:
-            # ONNX yuklanmagan bo'lsa, aqlli kompyuter ko'rishi (CV) tahlili
             probabilities = self._heuristic_prediction(image, filename)
 
         # Eng yuqori 5 ta natijani olish

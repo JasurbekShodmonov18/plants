@@ -250,7 +250,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const res = await response.json();
       if (!res.success) {
-        alert(res.error || "Tahlil jarayonida xatolik yuz berdi.");
+        if (res.is_plant === false) {
+          showNonPlantWarning(res.error || "Yuklangan rasmda ösimlik bargi aniqlanmadi.");
+        } else {
+          alert(res.error || "Tahlil jarayonida xatolik yuz berdi.");
+        }
         setLoading(false);
         return;
       }
@@ -263,10 +267,54 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  // Invalid State and Warning Modal
+  const invalidState = document.getElementById('invalidState');
+  const invalidStateDesc = document.getElementById('invalidStateDesc');
+  const warningModal = document.getElementById('warningModal');
+  const warningCloseBtn = document.getElementById('warningCloseBtn');
+  const warningRetryBtn = document.getElementById('warningRetryBtn');
+  const warningModalText = document.getElementById('warningModalText');
+
+  if (warningCloseBtn) {
+    warningCloseBtn.addEventListener('click', () => {
+      warningModal.style.display = 'none';
+    });
+  }
+
+  if (warningRetryBtn) {
+    warningRetryBtn.addEventListener('click', () => {
+      warningModal.style.display = 'none';
+      fileInput.click();
+    });
+  }
+
+  if (warningModal) {
+    warningModal.addEventListener('click', (e) => {
+      if (e.target === warningModal) {
+        warningModal.style.display = 'none';
+      }
+    });
+  }
+
+  function showNonPlantWarning(msg) {
+    placeholderState.style.display = 'none';
+    resultContent.style.display = 'none';
+    loadingState.style.display = 'none';
+    if (invalidState) {
+      invalidState.style.display = 'block';
+      if (invalidStateDesc && msg) invalidStateDesc.textContent = msg;
+    }
+    if (warningModal) {
+      if (warningModalText && msg) warningModalText.textContent = msg;
+      warningModal.style.display = 'flex';
+    }
+  }
+
   function setLoading(isLoading) {
     if (isLoading) {
       placeholderState.style.display = 'none';
       resultContent.style.display = 'none';
+      if (invalidState) invalidState.style.display = 'none';
       loadingState.style.display = 'block';
     } else {
       loadingState.style.display = 'none';

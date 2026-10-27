@@ -182,6 +182,20 @@
             <div style="font-size: 0.82rem; color: var(--text-muted);">Piksellar normalizatsiyasi va patogen belgilari aniqlanmoqda</div>
           </div>
 
+          <!-- Invalid / Non-plant State -->
+          <div id="invalidState" style="display: none; text-align: center; padding: 50px 20px;">
+            <div style="font-size: 3.2rem; margin-bottom: 12px;">⚠️</div>
+            <div style="font-family: var(--font-heading); font-size: 1.25rem; font-weight: 800; color: #fb7185; margin-bottom: 8px;">
+              Ösimlik Bargi Aniqlanmadi!
+            </div>
+            <p style="font-size: 0.88rem; color: var(--text-secondary); max-width: 360px; margin: 0 auto 16px; line-height: 1.55;" id="invalidStateDesc">
+              Yuklangan rasmda ösimlik to'qimalari yoki xlorofill belgilari topilmadi. Tizim faqat qişloq xöjaligi ekinlari barglari kasalliklarini taşxis qilişga möljallangan.
+            </p>
+            <div style="display: inline-block; padding: 6px 14px; background: rgba(244, 63, 94, 0.12); border: 1px solid rgba(244, 63, 94, 0.3); border-radius: 20px; font-size: 0.78rem; color: #fb7185;">
+              🍃 Iltimos, faqat ösimlik yoki barg aks etgan suratni yuklañg
+            </div>
+          </div>
+
           <!-- Result Content -->
           <div class="result-content" id="resultContent">
             <!-- Hero summary -->
@@ -348,6 +362,21 @@
           <div class="info-box-text" id="modalPrevention"></div>
         </div>
       </div>
+    </div>
+  </div>
+
+  <!-- Non-plant Warning Modal -->
+  <div class="modal-overlay" id="warningModal">
+    <div class="modal-card" style="max-width: 480px; text-align: center;">
+      <button class="modal-close-btn" id="warningCloseBtn">&times;</button>
+      <div style="font-size: 3.5rem; margin-bottom: 12px;">⚠️</div>
+      <h3 style="font-family: var(--font-heading); font-size: 1.45rem; margin-bottom: 10px; color: #fb7185;">Ösimlik Bargi Aniqlanmadi</h3>
+      <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 24px;" id="warningModalText">
+        Yuklangan rasmda ösimlik to'qimalari yoki xlorofill belgilari topilmadi. Tizim faqat qişloq xöjaligi ekinlari barglari kasalliklarini taşxis qilişga möljallangan.
+      </p>
+      <button type="button" class="btn-mobile-camera" id="warningRetryBtn" style="width: 100%; justify-content: center;">
+        🍃 Qaytadan Barg Suratini Yuklaş
+      </button>
     </div>
   </div>
 
