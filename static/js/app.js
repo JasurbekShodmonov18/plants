@@ -321,7 +321,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  function displayResult(data) {
+  function displayResult(data, saveToHistory = true) {
     const best = data.best_prediction;
     resultPlant.textContent = best.plant || "Ösimlik";
     resultDisease.textContent = best.disease || "Kasallik";
@@ -387,6 +387,132 @@ document.addEventListener('DOMContentLoaded', () => {
 
     placeholderState.style.display = 'none';
     resultContent.style.display = 'block';
+
+    // 1-usul: Tarixga saqlash
+    if (saveToHistory && resultThumb.src) {
+      saveDiagnosisToHistory(data, resultThumb.src);
+    }
+  }
+
+  // -----------------------------------------------------------------
+  // 1-usul: Diagnostics History via LocalStorage
+  // -----------------------------------------------------------------
+  const historyContainer = document.getElementById('historyContainer');
+  const historyGrid = document.getElementById('historyGrid');
+  const historyCountBadge = document.getElementById('historyCountBadge');
+  const clearHistoryBtn = document.getElementById('clearHistoryBtn');
+  const HISTORY_KEY = 'agroai_diagnostics_history';
+
+  function saveDiagnosisToHistory(data, imgSrc) {
+    try {
+      const best = data.best_prediction;
+      if (!best) return;
+
+      const img = new Image();
+      img.onload = () => {
+        const canvas = document.createElement('canvas');
+        canvas.width = 80;
+        canvas.height = 80;
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0, 80, 80);
+        const thumbBase64 = canvas.toDataURL('image/jpeg', 0.75);
+
+        const now = new Date();
+        const months = ['Yan', 'Fev', 'Mar', 'Apr', 'May', 'Iyun', 'Iyul', 'Avg', 'Sen', 'Okt', 'Noy', 'Dek'];
+        const timeStr = `${now.getDate()}-${months[now.getMonth()]}, ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+
+        const entry = {
+          id: Date.now(),
+          timestamp: timeStr,
+          plant: best.plant || "Ösimlik",
+          disease: best.disease || "Kasallik",
+          confidence: best.confidence || 0,
+          is_healthy: best.is_healthy,
+          thumb: thumbBase64,
+          data: data
+        };
+
+        let list = getHistoryList();
+        list.unshift(entry);
+        if (list.length > 10) list = list.slice(0, 10);
+        localStorage.setItem(HISTORY_KEY, JSON.stringify(list));
+        renderHistory();
+      };
+      img.src = imgSrc;
+    } catch (e) {
+      console.warn("Tarixni saqlaşda xatolik:", e);
+    }
+  }
+
+  function getHistoryList() {
+    try {
+      const raw = localStorage.getItem(HISTORY_KEY);
+      return raw ? JSON.parse(raw) : [];
+    } catch (e) {
+      return [];
+    }
+  }
+
+  function renderHistory() {
+    if (!historyGrid || !historyContainer) return;
+    const list = getHistoryList();
+
+    if (list.length === 0) {
+      historyContainer.style.display = 'none';
+      return;
+    }
+
+    historyContainer.style.display = 'block';
+    if (historyCountBadge) historyCountBadge.textContent = list.length;
+    historyGrid.innerHTML = '';
+
+    list.forEach(item => {
+      const card = document.createElement('div');
+      card.className = 'history-card';
+      card.innerHTML = `
+        <img src="${item.thumb}" class="history-thumb" alt="${item.plant}">
+        <div class="history-info">
+          <div class="history-plant">${item.plant}</div>
+          <div class="history-disease" title="${item.disease}">${item.disease}</div>
+          <div class="history-meta">
+            <span>${item.timestamp}</span>
+            <span>•</span>
+            <span class="history-score">${item.confidence}%</span>
+          </div>
+        </div>
+        <button type="button" class="history-delete-btn" title="O'çiriş">&times;</button>
+      `;
+
+      card.addEventListener('click', (e) => {
+        if (e.target.classList.contains('history-delete-btn')) {
+          e.stopPropagation();
+          deleteHistoryItem(item.id);
+          return;
+        }
+        resultThumb.src = item.thumb;
+        displayResult(item.data, false);
+        const diagEl = document.getElementById('diagnostics');
+        if (diagEl) diagEl.scrollIntoView({ behavior: 'smooth' });
+      });
+
+      historyGrid.appendChild(card);
+    });
+  }
+
+  function deleteHistoryItem(id) {
+    let list = getHistoryList();
+    list = list.filter(item => item.id !== id);
+    localStorage.setItem(HISTORY_KEY, JSON.stringify(list));
+    renderHistory();
+  }
+
+  if (clearHistoryBtn) {
+    clearHistoryBtn.addEventListener('click', () => {
+      if (confirm("Tekşiruvlar tarixini butunlay tozalamoqçimisiz?")) {
+        localStorage.removeItem(HISTORY_KEY);
+        renderHistory();
+      }
+    });
   }
 
   // -----------------------------------------------------------------
@@ -510,6 +636,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Initialize Encyclopedia
+  // Initialize Encyclopedia & History
   loadEncyclopedia();
+  renderHistory();
 });
+

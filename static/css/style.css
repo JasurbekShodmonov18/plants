@@ -1247,3 +1247,101 @@ body {
     font-size: 0.68rem;
   }
 }
+
+/* ----------------------------------------------------
+   Diagnostics History Section (1-usul: LocalStorage)
+   ---------------------------------------------------- */
+.history-container {
+  animation: fadeIn 0.4s ease;
+}
+
+.history-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 12px;
+}
+
+.history-card {
+  background: rgba(0, 0, 0, 0.28);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: var(--transition);
+  position: relative;
+}
+
+.history-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-green);
+  background: rgba(16, 185, 129, 0.08);
+  box-shadow: 0 4px 14px var(--accent-green-glow);
+}
+
+.history-thumb {
+  width: 52px;
+  height: 52px;
+  border-radius: 10px;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 1.5px solid var(--border-color);
+}
+
+.history-info {
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.history-plant {
+  font-size: 0.7rem;
+  color: var(--accent-mint);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.history-disease {
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 2px;
+}
+
+.history-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.history-score {
+  color: var(--accent-green);
+  font-weight: 700;
+}
+
+.history-delete-btn {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 50%;
+  line-height: 1;
+  transition: var(--transition);
+}
+
+.history-delete-btn:hover {
+  color: #fb7185;
+  background: rgba(244, 63, 94, 0.18);
+}
+

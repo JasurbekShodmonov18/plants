@@ -28,6 +28,7 @@
 
         <ul class="nav-links">
           <li><a href="#diagnostics" class="active" id="navDiagnose">Taşxis</a></li>
+          <li><a href="#historyContainer" id="navHistory">Tarix</a></li>
           <li><a href="#dl-architecture" id="navDl">Model Tuzilişi</a></li>
           <li><a href="#encyclopedia" id="navEncyclopedia">Ensiklopediyasi</a></li>
         </ul>
@@ -263,8 +264,23 @@
             </div>
           </div>
 
-        </div>
+      </div>
 
+      <!-- Diagnostics History Section (1-usul: Client-side LocalStorage) -->
+      <div class="history-container glass" id="historyContainer" style="display: none; margin-top: 32px; padding: 22px 24px; border-radius: var(--radius-lg);">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
+          <h3 style="font-family: var(--font-heading); font-size: 1.15rem; font-weight: 800; display: flex; align-items: center; gap: 8px;">
+            <span>🕒</span> Oxirgi Tekşiruvlar Tarixi
+            <span id="historyCountBadge" style="font-size: 0.72rem; background: rgba(16, 185, 129, 0.2); color: var(--accent-mint); padding: 2px 8px; border-radius: 12px; font-weight: 700;">0</span>
+          </h3>
+          <button type="button" id="clearHistoryBtn" style="background: rgba(244, 63, 94, 0.1); border: 1px solid rgba(244, 63, 94, 0.25); color: #fb7185; padding: 5px 12px; border-radius: 16px; font-size: 0.76rem; font-weight: 600; cursor: pointer; transition: var(--transition);">
+            🗑️ Tarixni Tozalaş
+          </button>
+        </div>
+        
+        <div class="history-grid" id="historyGrid">
+          <!-- JS orqali localStorage dan dinamik töldiriladi -->
+        </div>
       </div>
     </section>
 
